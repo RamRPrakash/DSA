@@ -1,0 +1,46 @@
+🚀 Step-by-Step Roadmap
+🔹 Phase 1: Mastering Core DSA (3-4 Months)
+✅ Big-O Notation & Time Complexity Analysis
+✅ Arrays & Strings (Two Pointers, Sliding Window, Hashing)
+✅ Recursion & Backtracking
+✅ Linked Lists (Singly, Doubly, Fast-Slow Pointers, Reversal, Cycle Detection)
+✅ Stacks & Queues (Monotonic Stack, Min/Max Stack, LRU Cache)
+✅ Binary Trees & Binary Search Trees (DFS, BFS, Morris Traversal, Diameter, LCA, AVL Trees)
+✅ Heap & Priority Queue (Top K Elements, Median, Merge K Sorted Lists, Dijkstra’s Algorithm)
+✅ HashMaps & HashSets (Anagrams, Subarrays, Frequency Maps)
+✅ Sorting Algorithms (Merge Sort, Quick Sort, Radix Sort, Bucket Sort)
+✅ Binary Search & Variants (Search Rotated Array, Median of Two Sorted Arrays, Upper/Lower Bound)
+🔥 Practice: Leetcode Easy + Medium (Top 150 problems)
+
+🔹 Phase 2: Advanced DSA & Competitive Programming (3-4 Months)
+✅ Dynamic Programming (Knapsack, LIS, LCS, Matrix Chain, DP on Trees, Bitmask DP)
+✅ Graph Algorithms (Dijkstra, Bellman-Ford, Floyd-Warshall, MST, Bridges, Tarjan’s Algorithm, Topological Sorting, Cycle Detection)
+✅ Tries & Suffix Trees (Autocomplete, Word Search, LCP, Suffix Array, Rabin-Karp)
+✅ Segment Trees & Fenwick Trees (Range Queries, Lazy Propagation)
+✅ Bit Manipulation (XOR Trick, Power of Two, Bitmask DP, Subset Generation)
+✅ Advanced Recursion (N-Queens, Sudoku Solver, Rat in a Maze)
+🔥 Practice: Leetcode Hard + Codeforces (Div 2)
+
+🔹 Phase 3: System Design & Scalability (3-4 Months)
+✅ Fundamentals
+
+CAP Theorem, Consistency Models, Sharding, Load Balancing, Caching
+Database Scaling (SQL vs NoSQL, Indexing, Partitioning, Replication)
+API Design (REST vs GraphQL, Rate Limiting, Pagination, Authentication)
+Microservices vs Monolith, Event-Driven Architecture, Message Queues
+Distributed Systems (Leader Election, Paxos, Raft, Distributed Caching, CDN, Consistent Hashing)
+Scalability Case Studies (YouTube, Instagram, WhatsApp, Uber)
+🔥 Practice: System Design Mock Interviews (Design Uber, Netflix, Twitter, YouTube, WhatsApp)
+
+🔹 Phase 4: Mock Interviews & Final Preparation (2-3 Months)
+✅ Leetcode Grind (Top 100 Interview Problems + Contests)
+✅ Company-Specific Questions (Google, Facebook, Amazon, Microsoft, Oracle)
+✅ Mock Interviews (Peer Interviews, FAANG Coaching, Daily Live Coding Challenges)
+✅ Behavioral & HR Rounds (STAR Method, Leadership Principles, Problem-Solving Frameworks)
+
+📌 Final Goal: Clear Any MAANG Interview with Confidence
+💪 By the end of this roadmap, you’ll be able to:
+✅ Solve any DSA problem in JavaScript (Easy → Hard)
+✅ Crack coding rounds in top-level MAANG interviews
+✅ Design scalable real-world systems confidently
+✅ Ace behavioral interviews & system design discussions

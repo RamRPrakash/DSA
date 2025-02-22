@@ -1,0 +1,33 @@
+📌 Phase 2: Advanced DSA & Competitive Programming (Weeks 13-24)
+🎯 Goal: Solve hard problems & improve speed
+
+🗓 Week 13-14: Dynamic Programming (Part 1)
+Day 1-3: 1D DP (Fibonacci, Climbing Stairs, House Robber)
+Day 4-5: Knapsack, Subset Sum
+Day 6-7: Longest Increasing Subsequence, LCS
+Leetcode: 15 Problems
+🗓 Week 15-16: Dynamic Programming (Part 2)
+Day 1-3: DP on Trees & Grids
+Day 4-5: Bitmask DP
+Day 6-7: Matrix Chain Multiplication
+Leetcode: 15 Problems
+🗓 Week 17-18: Graph Algorithms
+Day 1-3: BFS, DFS, Topological Sorting
+Day 4-5: Dijkstra, Bellman-Ford, Floyd-Warshall
+Day 6-7: Bridges & Articulation Points
+Leetcode: 20 Problems
+🗓 Week 19-20: Tries & Advanced Graphs
+Day 1-3: Tries (Prefix Search, Autocomplete)
+Day 4-5: Suffix Array, KMP Algorithm
+Day 6-7: Rabin-Karp String Matching
+Leetcode: 15 Problems
+🗓 Week 21-22: Segment Trees & Fenwick Trees
+Day 1-3: Segment Tree Basics (Range Queries, Lazy Propagation)
+Day 4-5: Fenwick Tree (Binary Indexed Tree)
+Day 6-7: Competitive Programming Practice
+Leetcode: 15 Problems
+🗓 Week 23-24: Competitive Programming & Hard Problems
+Day 1-2: Codeforces & Atcoder practice
+Day 3-5: Hard Leetcode Problems
+Day 6-7: Mock Contests
+🔥 End of Phase 2: You should now be able to solve Leetcode Hard and participate in coding contests.

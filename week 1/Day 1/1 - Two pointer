@@ -1,0 +1,93 @@
+Two Pointers Technique - Explained from Scratch
+🔹 What is the Two Pointers Technique?
+The Two Pointers technique is an optimized approach for problems involving searching, sorting, and subsequences. Instead of using nested loops (O(n²)), we use two pointers to reduce the time complexity to O(n) in most cases.
+
+🔹 When to Use Two Pointers?
+Searching for pairs or triplets (Sum problems, like Two Sum, Three Sum)
+Finding subsequences (Longest substring, removing duplicates)
+Sorting-based problems (Merging sorted arrays, rearranging elements)
+Reversing an array or linked list
+📝 Types of Two Pointers Approach
+Opposite Direction Pointers (Start & End)
+Same Direction Pointers (Slow & Fast)
+1️⃣ Opposite Direction Pointers (Start & End)
+Used when the array is sorted.
+One pointer starts at the beginning, and the other starts at the end.
+Both move toward the center based on conditions.
+🔹 Example 1: Check if a Pair Exists with a Given Sum
+📌 Problem: Given a sorted array and a target sum, find if there exists a pair whose sum is equal to the target.
+🔹 Input: arr = [1, 2, 3, 4, 6, 8, 9], target = 10
+🔹 Output: true (because 1 + 9 = 10)
+
+🔹 Brute Force (O(n²)) → Use two nested loops
+🔹 Optimized (O(n)) → Use Two Pointers
+
+💡 Optimized Approach
+Start with two pointers:
+left = 0 (first element)
+right = n-1 (last element)
+If arr[left] + arr[right] == target, return true
+If sum is too small, move left forward.
+If sum is too large, move right backward.
+📝 Code (JavaScript)
+javascript
+Copy
+Edit
+function hasPairWithSum(arr, target) {
+let left = 0, right = arr.length - 1;
+
+    while (left < right) {
+        let sum = arr[left] + arr[right];
+
+        if (sum === target) return true;
+        else if (sum < target) left++; // Increase left pointer
+        else right--; // Decrease right pointer
+    }
+    return false;
+
+}
+
+console.log(hasPairWithSum([1, 2, 3, 4, 6, 8, 9], 10)); // true
+console.log(hasPairWithSum([1, 2, 3, 4, 6, 8, 9], 15)); // false
+✅ Time Complexity: O(n)
+✅ Space Complexity: O(1)
+
+2️⃣ Same Direction Pointers (Slow & Fast)
+Used when iterating through an array or linked list.
+One pointer moves slowly, while another moves fast.
+Helps in finding duplicates, detecting cycles, or finding middle elements.
+🔹 Example 2: Remove Duplicates from a Sorted Array (in-place)
+📌 Problem: Given a sorted array, remove duplicates in place so that each element appears only once, and return the new length.
+🔹 Input: arr = [1, 1, 2, 2, 3, 4, 4, 5]
+🔹 Output: 5 (Modified array: [1, 2, 3, 4, 5])
+
+💡 Optimized Approach
+Use a slow pointer (i) to track unique elements.
+Use a fast pointer (j) to scan the array.
+If arr[i] !== arr[j], update arr[i+1] and move i forward.
+📝 Code (JavaScript)
+
+function removeDuplicates(arr) {
+if (arr.length === 0) return [];
+
+    let i = 0; // Slow pointer
+
+    for (let j = 1; j < arr.length; j++) { // Fast pointer
+        if (arr[i] !== arr[j]) {
+            i++;
+            arr[i] = arr[j]; // Move unique value forward
+        }
+    }
+
+    return arr.slice(0, i + 1); // Trim the array to keep only unique values
+
+}
+
+console.log(removeDuplicates([1, 1, 2, 2, 3, 4, 4, 5])); // [1, 2, 3, 4, 5]
+Time Complexity: O(n)
+✅ Space Complexity: O(1)
+
+Type When to Use? Example Problems
+Opposite Direction (Start & End) Finding pairs, triplets, subarrays in sorted arrays Two Sum (Sorted),
+Container with Most Water
+Same Direction (Slow & Fast Pointers) Removing duplicates, cycle detection, finding middle of a sequence Linked List Cycle Detection, Remove Duplicates

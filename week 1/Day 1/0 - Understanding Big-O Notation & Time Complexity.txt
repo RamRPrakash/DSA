@@ -1,0 +1,62 @@
+Day 1: Understanding Big-O Notation & Time Complexity
+
+📌 Step 1: Why is Time Complexity Important?
+In coding interviews, the efficiency of your solution matters as much as correctness.
+
+Bad Code (O(n²)): Works but too slow for large inputs.
+
+Optimal Code (O(log n)): Runs efficiently for large inputs.
+
+
+📌 Step 2: Understanding Big-O Notation
+Big-O describes the worst-case performance of an algorithm.
+
+O(1) - Constant Time → Fastest! 🚀
+
+function getFirstElement(arr) {
+  return arr[0]; // Always takes 1 step
+}
+
+
+O(log n) - Logarithmic Time → Divides problem each step
+
+function binarySearch(arr, target) {
+  let left = 0, right = arr.length - 1;
+  while (left <= right) {
+    let mid = Math.floor((left + right) / 2);
+    if (arr[mid] === target) return mid;
+    if (arr[mid] < target) left = mid + 1;
+    else right = mid - 1;
+  }
+  return -1;
+}
+
+
+O(n) - Linear Time → Loops through input once
+
+function sumArray(arr) {
+  let sum = 0;
+  for (let num of arr) {
+    sum += num;
+  }
+  return sum;
+}
+
+
+O(n²) - Quadratic Time → Nested loops (Slow 🚨)
+
+function printPairs(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr.length; j++) {
+      console.log(arr[i], arr[j]);
+    }
+  }
+}
+
+
+O(2ⁿ) - Exponential Time → Bruteforce recursion
+
+function fibonacci(n) {
+  if (n <= 1) return n;
+  return fibonacci(n - 1) + fibonacci(n - 2);
+}
