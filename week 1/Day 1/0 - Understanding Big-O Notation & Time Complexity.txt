@@ -60,3 +60,71 @@ function fibonacci(n) {
   if (n <= 1) return n;
   return fibonacci(n - 1) + fibonacci(n - 2);
 }
+
+
+Task : 
+function mystery(n) {
+  let count = 0;
+  for (let i = 1; i < n; i *= 2) {
+    count++;
+  }
+  return count;
+}
+o(log n)
+
+: Nested Logarithm Complexity
+What is the time complexity of this function?
+
+js
+Copy
+Edit
+function logExample(n) {
+  for (let i = n; i > 1; i /= 2) {   // Loop 1
+    for (let j = 1; j < i; j *= 2) {  // Loop 2
+      console.log(i, j);
+    }
+  }
+}
+Options:
+a) O(n)
+b) O(n log n)
+c) O(log² n)
+d) O(n²)
+
+👉 What’s your answer? Explain why! 🚀
+
+
+
+
+
+
+
+You said:
+O(log² n)
+ChatGPT said:
+✅ Correct! The time complexity is O(log² n).
+
+Explanation:
+Let's break it down:
+
+Outer Loop (i /= 2):
+Starts at n and divides by 2 in each iteration.
+Runs log₂(n) times (O(log n)).
+Inner Loop (j *= 2):
+Starts at 1 and multiplies by 2 in each iteration.
+Runs log₂(i) times.
+In the worst case (i = n), it runs O(log n).
+Total Complexity:
+Since the inner loop runs log n times for each iteration of the outer loop,
+
+𝑂(log 𝑛) × 𝑂(log 𝑛 ) = 𝑂(log^2 𝑛)
+
+function recursiveFunc(n) {
+  if (n <= 1) return;
+  console.log(n);
+  recursiveFunc(n - 1);
+}
+
+ O(n).
+
+ 
