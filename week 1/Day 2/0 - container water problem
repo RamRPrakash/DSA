@@ -1,0 +1,63 @@
+Great! Let's move to the next problems. Today, we'll solve:
+
+✅ Medium: Container with Most Water, 3Sum
+✅ Hard: Trapping Rain Water
+
+We'll start with Container with Most Water. Here’s the problem statement:
+
+🔹 Problem:
+Given an array height[], where height[i] represents the height of a vertical line at index i, find two lines that, together with the x-axis, form a container that holds the most water.
+
+🔹 Example:
+
+Input: height = [1,8,6,2,5,4,8,3,7]
+Output: 49
+
+Understanding the Problem
+Imagine you have N vertical bars of different heights, and you want to pick two bars such that they hold the most water when filled.
+
+The water is trapped between the two bars you choose.
+The width of the container is the distance between these two bars.
+The height of the container is determined by the shorter bar (because water cannot be higher than the shortest boundary).
+The area of water stored is:
+Water Area = Width × Height
+Water Area=Width×Height
+where:
+Width = Difference between the indices of the two bars.
+Height = Minimum of the two selected bar heights.
+
+🔴 Brute Force Approach (O(n²))
+You could check every possible pair of walls:
+
+for (let i = 0; i < n; i++) {
+for (let j = i + 1; j < n; j++) {
+maxWater = Math.max(maxWater, (j - i) \* Math.min(height[i], height[j]));
+}
+}
+
+✅ Optimal Approach: Two Pointer Method (O(n))
+
+function maxArea(height) {
+let left = 0, right = height.length - 1;
+let maxArea = 0;
+
+    while (left < right) {
+        let width = right - left;
+        let minHeight = Math.min(height[left], height[right]);
+        let area = width * minHeight;
+        maxArea = Math.max(maxArea, area);
+
+        // Move the pointer with the smaller height
+        if (height[left] < height[right]) {
+            left++;
+        } else {
+            right--;
+        }
+    }
+
+    return maxArea;
+
+}
+
+// Test the function
+console.log(maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7])); // Output: 49

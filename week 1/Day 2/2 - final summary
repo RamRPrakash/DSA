@@ -1,0 +1,87 @@
+### Summary of Today's DSA Session (Feb 22)
+
+#### Topics Covered:
+
+1. **Remove Duplicates from Sorted Array**
+
+   - Two pointers approach (slow and fast pointer)
+   - Optimized in-place removal
+   - Code implementation
+
+2. **Two Sum (Sorted Array)**
+
+   - Two pointers approach (left and right pointer)
+   - Optimized for sorted arrays
+   - Code implementation
+
+3. **Container with Most Water**
+   - Two pointers technique for maximizing area
+   - Explanation with examples
+   - Code implementation
+
+#### Code Solutions:
+
+1. **Remove Duplicates from Sorted Array**
+
+```javascript
+function removeDuplicates(arr) {
+  if (arr.length === 0) return 0;
+  let i = 0;
+  for (let j = 1; j < arr.length; j++) {
+    if (arr[i] !== arr[j]) {
+      i++;
+      arr[i] = arr[j];
+    }
+  }
+  return i + 1;
+}
+```
+
+2. **Two Sum (Sorted Array)**
+
+```javascript
+function hasPair(arr, target) {
+  let left = 0,
+    right = arr.length - 1;
+  while (left < right) {
+    let sum = arr[left] + arr[right];
+    if (sum === target) {
+      return [left + 1, right + 1];
+    }
+    if (sum < target) {
+      left++;
+    } else {
+      right--;
+    }
+  }
+  return -1;
+}
+```
+
+3. **Container with Most Water**
+
+```javascript
+function maxArea(height) {
+  let left = 0,
+    right = height.length - 1,
+    maxWater = 0;
+  while (left < right) {
+    let minHeight = Math.min(height[left], height[right]);
+    maxWater = Math.max(maxWater, minHeight * (right - left));
+    if (height[left] < height[right]) {
+      left++;
+    } else {
+      right--;
+    }
+  }
+  return maxWater;
+}
+```
+
+#### Key Takeaways:
+
+- Two pointers technique is effective for sorted arrays and optimization problems.
+- Understanding problem constraints helps in selecting the right approach.
+- Practicing edge cases improves problem-solving skills.
+
+📌 _Let me know if any modifications are needed!_ 🚀

@@ -1,0 +1,74 @@
+🚀 Problem: 3Sum
+📌 Goal: Find all unique triplets (a, b, c) in the array that sum to 0.
+
+🔹 Example
+Input:
+nums = [-1, 0, 1, 2, -1, -4];
+Output:
+[[-1, -1, 2], [-1, 0, 1]];
+✅ These are the two unique triplets that sum to 0.
+
+🔹 Brute Force Approach (O(n³))
+We can check all triplets using three nested loops:
+
+for (let i = 0; i < n; i++) {
+    for (let j = i + 1; j < n; j++) {
+        for (let k = j + 1; k < n; k++) {
+            if (nums[i] + nums[j] + nums[k] === 0) {
+                result.push([nums[i], nums[j], nums[k]]);
+            }
+        }
+    }
+}
+
+
+❌ Problem: This takes O(n³) time, which is too slow for large inputs!
+
+
+✅ Optimal Approach: Sorting + Two Pointers (O(n²))
+Instead of brute force, we can:
+
+Sort the array first.
+Fix one number and use the Two Pointer Technique for the remaining two numbers.
+
+🔹 Algorithm (Two Pointer Approach)
+Sort the array first.
+Loop through the array:
+Fix nums[i] as the first number.
+Use two pointers (left & right) to find nums[left] + nums[right] = -nums[i].
+Move pointers accordingly.
+Avoid duplicate triplets by skipping repeated numbers.
+
+function threeSum(nums) {
+    nums.sort((a, b) => a - b); // Step 1: Sort array
+    let result = [];
+
+    for (let i = 0; i < nums.length - 2; i++) {
+        if (i > 0 && nums[i] === nums[i - 1]) continue; // Skip duplicates
+
+        let left = i + 1, right = nums.length - 1;
+
+        while (left < right) {
+            let sum = nums[i] + nums[left] + nums[right];
+
+            if (sum === 0) {
+                result.push([nums[i], nums[left], nums[right]]);
+                left++; right--;
+
+                // Skip duplicates
+                while (left < right && nums[left] === nums[left - 1]) left++;
+                while (left < right && nums[right] === nums[right + 1]) right--;
+            } 
+            else if (sum < 0) {
+                left++; // Need a larger sum
+            } 
+            else {
+                right--; // Need a smaller sum
+            }
+        }
+    }
+    return result;
+}
+
+// Test the function
+console.log(threeSum([-1, 0, 1, 2, -1, -4])); // Output: [[-1, -1, 2], [-1, 0, 1]]

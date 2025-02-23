@@ -1,0 +1,68 @@
+### Topics Covered (Yesterday)
+
+#### 1. **Big-O Notation & Time Complexity Analysis**
+
+- Different time complexities: O(1), O(n), O(log n), O(n²), O(2ⁿ)
+- How to analyze loops and nested loops
+
+#### 2. **Two Pointers Technique**
+
+- **Easy:** Remove Duplicates from Sorted Array
+- **Medium:** Two Sum (Sorted), Container with Most Water
+- **Hard:** 3Sum, Trapping Rain Water
+
+---
+
+### **Code Implementations**
+
+#### **1. Remove Duplicates from Sorted Array**
+
+```javascript
+function removeDuplicates(arr) {
+  if (arr.length === 0) return 0;
+
+  let i = 0; // Slow pointer
+  for (let j = 1; j < arr.length; j++) {
+    // Fast pointer
+    if (arr[i] !== arr[j]) {
+      i++;
+      arr[i] = arr[j]; // Move unique value forward
+    }
+  }
+
+  return i + 1; // New length of the array
+}
+
+console.log(removeDuplicates([1, 1, 2, 2, 3, 4, 4, 5])); // Output: 5
+```
+
+#### **2. Two Sum (Sorted Array - Two Pointers Approach)**
+
+```javascript
+function hasPair(arr, target) {
+  let left = 0,
+    right = arr.length - 1;
+
+  while (left < right) {
+    let sum = arr[left] + arr[right];
+
+    if (sum === target) {
+      return [left + 1, right + 1];
+    }
+
+    if (sum < target) {
+      left++;
+    } else {
+      right--;
+    }
+  }
+
+  return -1;
+}
+
+console.log(hasPair([2, 7, 11, 15], 9)); // Output: [1, 2]
+```
+
+---
+
+This document summarizes our discussion and coding practice from yesterday. Let me know if you need any additions or explanations! 🚀
