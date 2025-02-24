@@ -1,0 +1,87 @@
+📌 Problem Statement: 4Sum
+Given an array nums of n integers and an integer target, find all unique quadruplets (a, b, c, d) in the array such that:
+
+𝑎
+
+- 𝑏
+- 𝑐
+- # 𝑑
+  target
+  a+b+c+d=target
+  You need to return all unique quadruplets in any order.
+
+Example 1:
+js
+Copy
+Edit
+Input: nums = [1, 0, -1, 0, -2, 2], target = 0
+Output: [[-2, -1, 0, 1], [-2, 0, 0, 2], [-1, 0, 0, 1]]
+Example 2:
+js
+Copy
+Edit
+Input: nums = [2, 2, 2, 2, 2], target = 8
+Output: [[2, 2, 2, 2]]
+📌 Explanation:
+Sorting + Two Pointers Approach:
+First, sort the array.
+Use two fixed pointers (nested loops) and two moving pointers (left and right).
+Skip duplicate values to avoid duplicate quadruplets.
+Would you like me to guide you through the solution step by step, or do you want to try implementing it first? 🚀
+
+ChatGPT said:
+Here's the implementation for 4Sum using the optimized two-pointer approach:
+
+🔹 Approach: Sorting + Two Pointers
+Step 1: Sort the array to simplify finding unique quadruplets.
+Step 2: Use two nested loops to fix the first two numbers.
+Step 3: Use the two-pointer technique to find the remaining two numbers.
+Step 4: Skip duplicate numbers to avoid repeated quadruplets.
+✅ Code Implementation
+
+function fourSum(nums, target) {
+nums.sort((a, b) => a - b); // Step 1: Sort the array
+let result = [];
+
+    for (let i = 0; i < nums.length - 3; i++) {
+        if (i > 0 && nums[i] === nums[i - 1]) continue; // Skip duplicates
+
+        for (let j = i + 1; j < nums.length - 2; j++) {
+            if (j > i + 1 && nums[j] === nums[j - 1]) continue; // Skip duplicates
+
+            let left = j + 1, right = nums.length - 1;
+
+            while (left < right) {
+                let sum = nums[i] + nums[j] + nums[left] + nums[right];
+
+                if (sum === target) {
+                    result.push([nums[i], nums[j], nums[left], nums[right]]);
+                    left++;
+                    right--;
+
+                    while (left < right && nums[left] === nums[left - 1]) left++; // Skip duplicates
+                    while (left < right && nums[right] === nums[right + 1]) right--; // Skip duplicates
+                }
+                else if (sum < target) {
+                    left++; // Need a larger sum
+                }
+                else {
+                    right--; // Need a smaller sum
+                }
+            }
+        }
+    }
+
+    return result;
+
+}
+
+// 🔥 Test Cases
+console.log(fourSum([1, 0, -1, 0, -2, 2], 0)); // Output: [[-2, -1, 0, 1], [-2, 0, 0, 2], [-1, 0, 0, 1]]
+console.log(fourSum([2, 2, 2, 2, 2], 8)); // Output: [[2, 2, 2, 2]]
+
+Time Complexity Analysis:
+Sorting the array takes O(N log N).
+The two nested loops run in O(N²).
+The two-pointer approach inside runs in O(N).
+Overall Complexity: O(N³) (since we iterate through all quadruplets).

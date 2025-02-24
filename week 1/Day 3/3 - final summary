@@ -1,0 +1,102 @@
+# Summary of Today's Class
+
+## Topics Covered:
+1. **Container with Most Water**
+   - Problem explanation with diagram.
+   - Two-pointer approach to find the maximum water container.
+   - Time Complexity: O(N)
+
+2. **Trapping Rain Water**
+   - Problem understanding with elevation diagram.
+   - Two-pointer approach to calculate trapped water.
+   - Time Complexity: O(N)
+
+3. **Three Sum Problem**
+   - Sorting and two-pointer approach.
+   - Avoiding duplicate triplets.
+   - Time Complexity: O(N^2)
+
+## Implemented Programs:
+
+### 1. Container with Most Water
+```javascript
+function maxArea(height) {
+    let left = 0, right = height.length - 1;
+    let maxWater = 0;
+    
+    while (left < right) {
+        let area = Math.min(height[left], height[right]) * (right - left);
+        maxWater = Math.max(maxWater, area);
+        
+        if (height[left] < height[right]) {
+            left++;
+        } else {
+            right--;
+        }
+    }
+    
+    return maxWater;
+}
+```
+
+### 2. Trapping Rain Water
+```javascript
+function trap(height) {
+    let left = 0, right = height.length - 1;
+    let leftMax = 0, rightMax = 0;
+    let totalWater = 0;
+
+    while (left < right) {
+        if (height[left] < height[right]) {
+            if (height[left] >= leftMax) {
+                leftMax = height[left];
+            } else {
+                totalWater += leftMax - height[left];
+            }
+            left++;
+        } else {
+            if (height[right] >= rightMax) {
+                rightMax = height[right];
+            } else {
+                totalWater += rightMax - height[right];
+            }
+            right--;
+        }
+    }
+    return totalWater;
+}
+```
+
+### 3. Three Sum Problem
+```javascript
+function threeSum(nums) {
+    nums.sort((a, b) => a - b);
+    let result = [];
+
+    for (let i = 0; i < nums.length - 2; i++) {
+        if (i > 0 && nums[i] === nums[i - 1]) continue;
+        let left = i + 1, right = nums.length - 1;
+        
+        while (left < right) {
+            let sum = nums[i] + nums[left] + nums[right];
+            
+            if (sum === 0) {
+                result.push([nums[i], nums[left], nums[right]]);
+                left++; right--;
+                while (left < right && nums[left] === nums[left - 1]) left++;
+                while (left < right && nums[right] === nums[right + 1]) right--;
+            } else if (sum < 0) {
+                left++;
+            } else {
+                right--;
+            }
+        }
+    }
+    return result;
+}
+```
+
+### Next Steps:
+- Continue with more Array and String problems.
+- Solve Leetcode problems for practice.
+
